@@ -1,1 +1,1 @@
-ılk web sayfam
+bu benim ilk projelerimden biridir kendisi formula 1 için herkesin oluşabiliceği haberle sürücelerin ve takımın bilgilerinin, yarış bilgileri, tur süreleri, yarış tarihleri, f1 magazini nin olduğu bir projedir api sizdir çünkü ilk kodladığım sitedir 
