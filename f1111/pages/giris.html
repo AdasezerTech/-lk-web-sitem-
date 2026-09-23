@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login • F1 Pulse</title>
+  <link rel="stylesheet" href="../project.css"/>
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-card">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input type="email" id="loginEmail" placeholder="Email" required/>
+        <input type="password" id="loginPassword" placeholder="Password" required/>
+        <button class="btn" type="submit">Login</button>
+      </form>
+      <div class="spacer"></div>
+      <p class="muted">Don't have an account?</p>
+      <button class="btn" onclick="showRegister()">Register</button>
+    </div>
+
+    <div class="auth-card" id="registerCard" style="display:none;">
+      <h2>Register</h2>
+      <form id="registerForm">
+        <input type="text" id="registerName" placeholder="Name" required/>
+        <input type="email" id="registerEmail" placeholder="Email" required/>
+        <input type="password" id="registerPassword" placeholder="Password" required/>
+        <button class="btn" type="submit">Register</button>
+      </form>
+      <div class="spacer"></div>
+      <p class="muted">Already have an account?</p>
+      <button class="btn" onclick="showLogin()">Login</button>
+    </div>
+  </div>
+
+  <button id="darkModeToggle" class="dark-toggle">🌙</button>
+
+  <script>
+    function showRegister() {
+      document.querySelector('.auth-card').style.display = 'none';
+      document.getElementById('registerCard').style.display = 'block';
+    }
+    function showLogin() {
+      document.getElementById('registerCard').style.display = 'none';
+      document.querySelector('.auth-card').style.display = 'block';
+    }
+
+    document.getElementById('registerForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('registerName').value;
+      const email = document.getElementById('registerEmail').value;
+      const pwd = document.getElementById('registerPassword').value;
+      localStorage.setItem('userName', name);
+      localStorage.setItem('userEmail', email);
+      localStorage.setItem('userPassword', pwd);
+      alert('Registration successful!');
+      showLogin();
+    });
+
+    document.getElementById('loginForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail').value;
+      const pwd = document.getElementById('loginPassword').value;
+      const savedEmail = localStorage.getItem('userEmail');
+      const savedPwd = localStorage.getItem('userPassword');
+
+      if (email === 'admin@f1pulse.com' && pwd === 'ADMIN123') {
+        localStorage.setItem('loggedIn', 'true');
+        alert('Admin login successful!');
+        window.location.href = 'index.html';
+        return;
+      }
+
+      if (email === savedEmail && pwd === savedPwd) {
+        localStorage.setItem('loggedIn', 'true');
+        alert('Login successful!');
+        window.location.href = 'index.html';
+      } else {
+        alert('Email or password is incorrect!');
+      }
+    });
+  </script>
+
+  <script src="../script.js"></script>
+</body>
+</html>

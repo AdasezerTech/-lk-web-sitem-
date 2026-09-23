@@ -1,0 +1,288 @@
+* { box-sizing: border-box; }
+
+html, body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+body {
+  font-family: Inter, Arial, sans-serif;
+  background: #0d0d0d;
+  color: #eaeaea;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+:root {
+  --f1-red: #ff1e00;
+  --f1-dark: #0d0d0d;
+  --f1-mid: #1a1a1a;
+  --f1-light: #f5f5f5;
+  --card-bg: #131313;
+  --accent: var(--f1-red);
+}
+
+:root {
+  --ferrari: #dc0000;
+  --mercedes: #00d2be;
+  --redbull: #1e2a5a;
+  --mclaren: #ff8700;
+  --astonmartin: #006f62;
+  --alpine: #0055ff;
+  --williams: #0b0f2e;
+  --haas: #c0c0c0;
+  --rb: #001f3f;
+  --audi: #8c8c8c;
+  --cadillac: #b28b00;
+}
+
+.navbar {
+  display: flex; justify-content: space-between; align-items: center;
+  background: #111; padding: 1rem 2rem; position: sticky; top: 0; z-index: 1000;
+  border-bottom: 1px solid #222;
+}
+
+.logo { font-weight: 800; letter-spacing: 0.5px; color: var(--accent); }
+
+.nav-links { list-style: none; display: flex; gap: 1.25rem; margin: 0; padding: 0; }
+
+.nav-links a {
+  color: #eaeaea; text-decoration: none; position: relative; padding: 0.25rem 0;
+}
+
+.nav-links a::after {
+  content: ""; position: absolute; left: 0; bottom: -6px; width: 0; height: 2px;
+  background: var(--accent); transition: width 0.25s ease;
+}
+
+.nav-links a:hover { color: #fff; }
+.nav-links a:hover::after { width: 100%; }
+
+.hero {
+  position: relative; padding: 5rem 2rem; text-align: center; background: linear-gradient(135deg,#0b0b0b,#151515);
+}
+
+.hero h1 { font-size: 2.6rem; margin: 0 0 0.75rem; }
+
+.hero p { color: #cfcfcf; margin-bottom: 1.5rem; }
+
+.btn {
+  display: inline-block; padding: 0.8rem 1.4rem; border-radius: 8px;
+  background: var(--accent); color: #fff; text-decoration: none; font-weight: 600;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(255,30,0,0.25); }
+
+.section { padding: 2rem; max-width: 1200px; margin: 0 auto; }
+
+.grid {
+  display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 1.25rem;
+}
+
+.card {
+  background: var(--card-bg); border: 1px solid #222; border-radius: 12px; overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,0.35); }
+
+.card img { width: 100%; height: 160px; object-fit: cover; background: #0a0a0a; }
+
+.card-body { padding: 1rem; }
+
+.card-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+
+.card-meta { font-size: 0.9rem; color: #bdbdbd; margin-bottom: 0.5rem; }
+
+.card-text { font-size: 0.95rem; color: #d8d8d8; }
+
+.team-header {
+  display: flex; align-items: center; gap: 0.75rem; padding: 1rem; border-bottom: 1px solid #222;
+}
+
+.team-header img { width: 40px; height: 40px; object-fit: contain; }
+
+.team-header h2 { margin: 0; font-size: 1.4rem; }
+
+.banner { height: 4px; width: 100%; background: var(--accent); }
+
+.theme-ferrari .banner { background: var(--ferrari); }
+.theme-mercedes .banner { background: var(--mercedes); }
+.theme-redbull .banner { background: var(--redbull); }
+.theme-mclaren .banner { background: var(--mclaren); }
+.theme-astonmartin .banner { background: var(--astonmartin); }
+.theme-alpine .banner { background: var(--alpine); }
+.theme-williams .banner { background: var(--williams); }
+.theme-haas .banner { background: var(--haas); }
+.theme-rb .banner { background: var(--rb); }
+.theme-audi .banner { background: var(--audi); }
+.theme-cadillac .banner { background: var(--cadillac); }
+
+.flex { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+.kv { display: grid; grid-template-columns: 140px 1fr; gap: 0.75rem; align-items: center; }
+
+.kv img { width: 140px; height: 140px; object-fit: cover; border-radius: 8px; }
+
+.kv h3 { margin: 0; font-size: 1.2rem; }
+
+.kv ul { margin: 0.5rem 0 0; padding: 0 0 0 1rem; color: #cfcfcf; }
+
+.table {
+  width: 100%; border-collapse: collapse; margin: 1rem 0; background: var(--card-bg);
+  border: 1px solid #222; border-radius: 8px; overflow: hidden;
+}
+
+.table th, .table td { padding: 0.75rem 0.9rem; border-bottom: 1px solid #222; text-align: left; }
+
+.table th { background: #161616; color: #eaeaea; font-weight: 700; }
+
+.table tr:hover td { background: #151515; }
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #1f1f1f;
+  color: #fff;
+  margin-top: auto;
+}
+
+body.light-mode footer {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.dark-toggle {
+  position: fixed; bottom: 20px; right: 20px; width: 46px; height: 46px;
+  display: grid; place-items: center; background: #111; color: #fff; border: 1px solid #222;
+  border-radius: 50%; cursor: pointer; transition: background 0.2s ease;
+}
+
+.dark-toggle:hover { background: #222; }
+
+.auth-container {
+  min-height: 100vh; display: grid; place-items: center; padding: 2rem;
+}
+
+.auth-card {
+  width: 340px; background: var(--card-bg); border: 1px solid #222; border-radius: 12px; padding: 1.25rem;
+}
+
+.auth-card h2 { margin: 0 0 0.75rem; }
+
+.auth-card input {
+  width: 100%; padding: 0.7rem; margin: 0.4rem 0; border: 1px solid #333; border-radius: 8px; background: #111; color: #eee;
+}
+
+.auth-card button { width: 100%; margin-top: 0.4rem; }
+
+.muted { color: #bdbdbd; font-size: 0.9rem; }
+
+.spacer { height: 12px; }
+
+.info-section {
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.info-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #00b4d8;
+}
+
+.info-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.info-card {
+  background: #fff;
+  color: #333;
+  width: 220px;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+body:not(.light-mode) .info-card {
+  background: #1f1f1f;
+  color: #e0e0e0;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+}
+
+body:not(.light-mode) .info-card:hover {
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.08);
+}
+
+.info-btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background: #d32f2f;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.info-btn:hover {
+  background: #b71c1c;
+  transform: translateY(-2px);
+}
+
+body:not(.light-mode) .info-btn {
+  background: #ef5350;
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(255,255,255,0.1);
+}
+
+body:not(.light-mode) .info-btn:hover {
+  background: #e53935;
+}
+
+body {
+  background: #0d0d0d;
+  color: #eaeaea;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.light-mode {
+  background: #f5f5f5;
+  color: #333;
+}
+form input,
+form textarea {
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: #222; 
+  color: #fff;
+  font-size: 16px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input::placeholder,
+form textarea::placeholder {
+  color: #aaa;
+}
+
+form input:focus,
+form textarea:focus {
+  background-color: #333;
+  box-shadow: 0 0 8px rgba(255, 77, 77, 0.5); 
+  outline: none;
+}

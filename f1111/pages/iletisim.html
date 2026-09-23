@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact</title>
+  <link rel="stylesheet" href="../project.css"/>
+</head>
+<body data-auth-guard>
+  <header class="navbar">
+    <div class="logo">F1 Pulse</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="haberler.html">News</a></li>
+      <li><a href="takimlar.html">Teams</a></li>
+      <li><a href="takvim.html">Race Calendar</a></li>
+      <li><a href="sonuclar.html">Results</a></li>
+      <li><a href="hakkinda.html">About</a></li>
+      <li><a href="iletisim.html">Contact</a></li>
+      <li><a href="giris.html" id="logoutLink">Logout</a></li>
+    </ul>
+  </header>
+
+  <section class="section">
+    <div class="grid">
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title">Get in Touch</div>
+          <form class="contact-form" action="#" method="post">
+            <input type="text" name="name" placeholder="Your Name" required/>
+            <input type="email" name="email" placeholder="Email" required/>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <button class="btn" type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+      <div class="card">
+        <img src="../assets/news/headline4.jpg" alt="Contact image">
+        <div class="card-body">
+          <div class="card-title">Social Media</div>
+          <div class="card-text">Twitter • Instagram • YouTube</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <button id="darkModeToggle" class="dark-toggle">🌙</button>
+  <footer><p>&copy; 2026 F1 Pulse.</p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>
